@@ -6,6 +6,7 @@
     <modules>
         <module>worker</module>
         <module>client_api</module>
+        <module>miscellaneous</module>
     </modules>
 
     <parent>
