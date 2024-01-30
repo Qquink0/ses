@@ -1,4 +1,4 @@
-package ses.client.service;
+package org.example.ses.worker.service;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

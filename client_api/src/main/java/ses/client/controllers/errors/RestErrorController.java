@@ -26,23 +26,23 @@ public class RestErrorController implements org.springframework.boot.web.servlet
         return PATH;
     }
 
-    @RequestMapping(PATH)
-    public ResponseEntity<ErrorDto> error(WebRequest webRequest) {
-
-        Map<String, Object> attributes = errorAttributes.getErrorAttributes(
-                webRequest,
-                ErrorAttributeOptions.of(ErrorAttributeOptions.Include.EXCEPTION, ErrorAttributeOptions.Include.MESSAGE)
-        );
-
-        HttpStatus httpStatus = HttpStatus.valueOf((Integer) attributes.get("status"));
-
-        return ResponseEntity
-                .status(httpStatus.value())
-                .body(
-                        ErrorDto.builder()
-                                .error(httpStatus.getReasonPhrase())
-                                .errorDescription((String) attributes.get("message"))
-                                .build()
-                );
-    }
+//    @RequestMapping(PATH)
+//    public ResponseEntity<ErrorDto> error(WebRequest webRequest) {
+//
+//        Map<String, Object> attributes = errorAttributes.getErrorAttributes(
+//                webRequest,
+//                ErrorAttributeOptions.of(ErrorAttributeOptions.Include.EXCEPTION, ErrorAttributeOptions.Include.MESSAGE)
+//        );
+//
+//        HttpStatus httpStatus = HttpStatus.valueOf((Integer) attributes.get("status"));
+//
+//        return ResponseEntity
+//                .status(httpStatus.value())
+//                .body(
+//                        ErrorDto.builder()
+//                                .error(httpStatus.getReasonPhrase())
+//                                .errorDescription((String) attributes.get("message"))
+//                                .build()
+//                );
+//    }
 }

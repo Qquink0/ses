@@ -23,22 +23,22 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return handleException(ex, request);
     }
 
-    @NonNull
-    @Override
-    protected ResponseEntity<Object> handleMissingServletRequestParameter(MissingServletRequestParameterException e,
-                                                                          @NonNull HttpHeaders headers,
-                                                                          @NonNull HttpStatus status,
-                                                                          @NonNull WebRequest request) {
-
-        String message = String.format("Parameter \"%s\" is missing", e.getParameterName());
-
-        return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
-                .body(
-                        ErrorDto.builder()
-                                .error(HttpStatus.BAD_REQUEST.getReasonPhrase())
-                                .errorDescription(message)
-                                .build()
-                );
-    }
+//    @NonNull
+//    @Override
+//    protected ResponseEntity<Object> handleMissingServletRequestParameter(MissingServletRequestParameterException e,
+//                                                                          @NonNull HttpHeaders headers,
+//                                                                          @NonNull HttpStatus status,
+//                                                                          @NonNull WebRequest request) {
+//
+//        String message = String.format("Parameter \"%s\" is missing", e.getParameterName());
+//
+//        return ResponseEntity
+//                .status(HttpStatus.BAD_REQUEST)
+//                .body(
+//                        ErrorDto.builder()
+//                                .error(HttpStatus.BAD_REQUEST.getReasonPhrase())
+//                                .errorDescription(message)
+//                                .build()
+//                );
+//    }
 }
