@@ -1,4 +1,4 @@
-package ses.client.controllers.errors;
+package ses.client.api.controllers.errors;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
