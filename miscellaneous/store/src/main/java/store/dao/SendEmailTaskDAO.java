@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 import store.entities.SendEmailTaskEntity;
 import store.repositories.SendEmailTaskRepository;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @Repository
@@ -21,4 +23,12 @@ public class SendEmailTaskDAO {
         return sendEmailTaskRepository.save(entity);
     }
 
+    public List<SendEmailTaskEntity> findAllNotProcessed() {
+        return sendEmailTaskRepository.findAllNotProcessed();
+    }
+
+    @Transactional
+    public void markAsProcessed(SendEmailTaskEntity sendEmailTask) {
+        sendEmailTaskRepository.markAsProcessed(sendEmailTask.getId());
+    }
 }
