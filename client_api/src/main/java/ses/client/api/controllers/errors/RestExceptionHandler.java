@@ -1,6 +1,7 @@
 package ses.client.api.controllers.errors;
 
 import lombok.extern.log4j.Log4j2;
+import org.example.data.dto.ErrorDTO;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,22 +24,22 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         return handleException(ex, request);
     }
 
-//    @NonNull
+    @NonNull
 //    @Override
-//    protected ResponseEntity<Object> handleMissingServletRequestParameter(MissingServletRequestParameterException e,
-//                                                                          @NonNull HttpHeaders headers,
-//                                                                          @NonNull HttpStatus status,
-//                                                                          @NonNull WebRequest request) {
-//
-//        String message = String.format("Parameter \"%s\" is missing", e.getParameterName());
-//
-//        return ResponseEntity
-//                .status(HttpStatus.BAD_REQUEST)
-//                .body(
-//                        ErrorDto.builder()
-//                                .error(HttpStatus.BAD_REQUEST.getReasonPhrase())
-//                                .errorDescription(message)
-//                                .build()
-//                );
-//    }
+    protected ResponseEntity<Object> handleMissingServletRequestParameter(MissingServletRequestParameterException e,
+                                                                          @NonNull HttpHeaders headers,
+                                                                          @NonNull HttpStatus status,
+                                                                          @NonNull WebRequest request) {
+
+        String message = String.format("Parameter \"%s\" is missing", e.getParameterName());
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(
+                        ErrorDTO.builder()
+                                .error(HttpStatus.BAD_REQUEST.getReasonPhrase())
+                                .errorDescription(message)
+                                .build()
+                );
+    }
 }
