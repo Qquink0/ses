@@ -1,4 +1,4 @@
-package ses.client.store.entities;
+package store.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

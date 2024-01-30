@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import ses.client.store.dao.SendEmailTaskDAO;
-import ses.client.store.entities.SendEmailTaskEntity;
+import store.dao.SendEmailTaskDAO;
+import store.entities.SendEmailTaskEntity;
 
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
