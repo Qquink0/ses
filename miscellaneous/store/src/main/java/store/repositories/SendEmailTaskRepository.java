@@ -24,4 +24,12 @@ public interface SendEmailTaskRepository extends JpaRepository<SendEmailTaskEnti
         WHERE task.id = :id
 """)
     void markAsProcessed(Long id);
+
+    @Modifying
+    @Query("""
+        UPDATE SendEmailTaskEntity task
+        SET task.latestTryAt = NOW()
+        WHERE task.id = :id
+""")
+    void updateLatestTryAt(Long id);
 }

@@ -28,7 +28,11 @@ public class SendEmailTaskDAO {
     }
 
     @Transactional
-    public void markAsProcessed(SendEmailTaskEntity sendEmailTask) {
-        sendEmailTaskRepository.markAsProcessed(sendEmailTask.getId());
+    public void markAsProcessed(SendEmailTaskEntity entity) {
+        sendEmailTaskRepository.markAsProcessed(entity.getId());
+    }
+
+    public void updateLatestTryAt(SendEmailTaskEntity entity) {
+        sendEmailTaskRepository.updateLatestTryAt(entity.getId());
     }
 }

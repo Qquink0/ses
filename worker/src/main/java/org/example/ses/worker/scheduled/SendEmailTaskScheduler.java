@@ -32,8 +32,12 @@ public class SendEmailTaskScheduler {
                     boolean delivered = emailService.sendEmail(destinationEmail, message);
 
                     if (delivered) {
-                        log.info("Task %d already processed.".formatted(sendEmailTask.getId()));
+                        log.debug("Task %d already processed.".formatted(sendEmailTask.getId()));
                         sendEmailTaskDAO.markAsProcessed(sendEmailTask);
+                    } else {
+                        log.debug("Task %d already processed.".formatted(sendEmailTask.getId()));
+                        sendEmailTaskDAO.updateLatestTryAt(sendEmailTask) {
+                        }
                     }
                 });
 
