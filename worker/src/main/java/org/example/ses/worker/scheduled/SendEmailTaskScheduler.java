@@ -35,9 +35,8 @@ public class SendEmailTaskScheduler {
                         log.debug("Task %d already processed.".formatted(sendEmailTask.getId()));
                         sendEmailTaskDAO.markAsProcessed(sendEmailTask);
                     } else {
-                        log.debug("Task %d already processed.".formatted(sendEmailTask.getId()));
-                        sendEmailTaskDAO.updateLatestTryAt(sendEmailTask) {
-                        }
+                        log.warn("Task %d returned to process.".formatted(sendEmailTask.getId()));
+                        sendEmailTaskDAO.updateLatestTryAt(sendEmailTask);
                     }
                 });
 
